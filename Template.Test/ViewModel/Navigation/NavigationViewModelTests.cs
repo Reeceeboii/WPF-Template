@@ -152,6 +152,7 @@ namespace Template.Test.ViewModel.Navigation
             // Act
             this.sut.Navigate<TestViewModel>();
 
+            // Assert
             this.factoryMock
                 .Received(1)
                 .ResolveViewModelFromServiceProvider<TestViewModel>();
