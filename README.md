@@ -27,6 +27,7 @@
 - `NSubstitute`
 - `Shouldly`
 - `Serilog.Sinks.TestCorrelator`
+- `NSubstitute.Analyzers.CSharp`
 
 ### Solution folders
 

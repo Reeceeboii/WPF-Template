@@ -21,6 +21,7 @@
             ServiceCollection services = [];
 
             // Misc
+            services.AddSingleton<INavigationViewModelFactory, NavigationViewModelFactory>();
             services.AddScoped<IFileSystem, FileSystem>();
 
             // ViewModels (windows)
@@ -30,7 +31,10 @@
             services.AddScoped<ExamplePageViewModel>();
 
             // ViewModels (misc)
-            services.AddScoped<NavigationViewModel>();
+            services.AddSingleton<NavigationViewModel>();
+            // Note - a singleton for the NavigationViewModel will cause navigation to become broken if
+            // this type is attempted to be used for navigation on smaller stratas of the UI than the MainWindow.
+            // In these cases, re-register this service as scoped/transient etc... or whatever works.
 
             // Services
             // ...

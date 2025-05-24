@@ -2,20 +2,35 @@
 {
     using System;
     using CommunityToolkit.Mvvm.ComponentModel;
-    using CommunityToolkit.Mvvm.DependencyInjection;
     using Serilog;
 
     /// <summary>
     /// Class representing the base logic of application view navigation based on
     /// a selected ViewModel
     /// </summary>
-    public partial class NavigationViewModel : ObservableObject
+    /// <param name="navigationViewModelFactory">An implementation of <see cref="INavigationViewModelFactory"/></param>
+    public class NavigationViewModel(INavigationViewModelFactory navigationViewModelFactory) : ObservableObject
     {
         /// <summary>
-        /// Gets or sets the current ViewModel that has been navigated to
+        /// An implementation of <see cref="INavigationViewModelFactory"/>
         /// </summary>
-        [ObservableProperty]
+        private readonly INavigationViewModelFactory navigationViewModelFactory = navigationViewModelFactory;
+
+        /// <summary>
+        /// Backing field for <see cref="CurrentViewModel"/>
+        /// </summary>
         private ObservableObject? currentViewModel;
+
+        /// <summary>
+        /// Gets or sets the current ViewModel that has been navigated to.
+        /// The setter is private to prevent navigation occurring outside of
+        /// the controller manner exposed via <see cref="Navigate{TTarget}"/>
+        /// </summary>
+        public ObservableObject? CurrentViewModel
+        {
+            get => this.currentViewModel;
+            private set => this.SetProperty(ref this.currentViewModel, value);
+        }
 
         /// <summary>
         /// Direct navigation method that is able to be used by areas of the application that have direct access
@@ -32,7 +47,7 @@
 
             try
             {
-                this.CurrentViewModel = Ioc.Default.GetRequiredService<TTarget>();
+                this.CurrentViewModel = this.navigationViewModelFactory.ResolveViewModelFromServiceProvider<TTarget>();
 
                 Log.Debug("{extenderType} navigated to {navType}", this.GetType().Name, typeof(TTarget));
                 Log.Information("Application has navigated to {target}", typeof(TTarget));
@@ -57,7 +72,7 @@
         /// <returns>True if the application should navigate, false if it should not</returns>
         private bool ShouldNavigate<TTarget>()
         {
-            return this.CurrentViewModel is not { } || typeof(TTarget) != this.CurrentViewModel.GetType();     
+            return this.CurrentViewModel is not { } || this.CurrentViewModel is not TTarget;     
         }
     }
 }
