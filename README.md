@@ -68,18 +68,23 @@ public MainWindowViewModel(NavigationViewModel navigationViewModel)
     this.NavigationViewModel.Navigate<ExamplePageViewModel>();
 }
 ```
+`MainWindowViewModel.cs`
+
 
 ```xml
 <DataTemplate DataType="{x:Type pageViewModels:ExamplePageViewModel}">
     <pageViews:ExamplePageView />
 </DataTemplate>
 ```
+`NavDataTemplates.xaml`
+
 
 ```xml
 <Grid Width="Auto">
     <ContentControl Content="{Binding NavigationViewModel.CurrentViewModel}" />
 </Grid>
 ```
+`MainWindowView.xaml`
 
 - Added `ExamplePageViewModel.cs` and `ExamplePageView.xaml/.cs` to demonstrate the navigation working. This ViewModel contains a basing string property bound to the view - that is what is displayed when the application first opens.
 
