@@ -2,7 +2,7 @@
 {
     using System.Windows;
     using CommunityToolkit.Mvvm.DependencyInjection;
-    using Template.App.ViewModel;
+    using Template.App.ViewModel.Windows;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

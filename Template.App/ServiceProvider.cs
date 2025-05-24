@@ -3,7 +3,9 @@
     using System.IO.Abstractions;
     using CommunityToolkit.Mvvm.DependencyInjection;
     using Microsoft.Extensions.DependencyInjection;
-    using Template.App.ViewModel;
+    using Template.App.ViewModel.Navigation;
+    using Template.App.ViewModel.Pages;
+    using Template.App.ViewModel.Windows;
 
     /// <summary>
     /// DI container for services/VMs etc...
@@ -21,8 +23,14 @@
             // Misc
             services.AddScoped<IFileSystem, FileSystem>();
 
-            // ViewModels
+            // ViewModels (windows)
             services.AddScoped<MainWindowViewModel>();
+
+            // ViewModels (pages)
+            services.AddScoped<ExamplePageViewModel>();
+
+            // ViewModels (misc)
+            services.AddScoped<NavigationViewModel>();
 
             // Services
             // ...

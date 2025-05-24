@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:pageViews="clr-namespace:Template.App.View.Pages"
+                    xmlns:pageViewModels="clr-namespace:Template.App.ViewModel.Pages">
+
+    <DataTemplate DataType="{x:Type pageViewModels:ExamplePageViewModel}">
+        <pageViews:ExamplePageView />
+    </DataTemplate>
+    
+</ResourceDictionary>

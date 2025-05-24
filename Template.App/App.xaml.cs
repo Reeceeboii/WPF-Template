@@ -15,6 +15,10 @@
         {
             base.OnStartup(e);
 
+            // Configure logging
+            Logging.ConfigureDebugLogging();
+            Logging.ConfigureReleaseLogging();
+
             Log.Information("App is starting");
 
             // Configure DI

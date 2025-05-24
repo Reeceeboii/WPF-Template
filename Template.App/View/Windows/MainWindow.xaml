@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:Template.App.ViewModel"
+        xmlns:vm="clr-namespace:Template.App.ViewModel.Windows"
         xmlns:local="clr-namespace:Template.App.View.Windows"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
@@ -11,14 +11,9 @@
         Height="450" 
         Width="800"
         ThemeMode="System">
-    
+
     <Grid Width="Auto">
-        <TextBlock
-            d:Text="This is a design time value"
-            Text="{Binding ExampleProperty, Mode=OneWay}" 
-            VerticalAlignment="Center" 
-            HorizontalAlignment="Center" 
-            FontSize="{StaticResource SharedFontSize1}"/>
+        <ContentControl Content="{Binding NavigationViewModel.CurrentViewModel}" />
     </Grid>
     
 </Window>
