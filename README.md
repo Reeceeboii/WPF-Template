@@ -58,6 +58,29 @@
 - Added `ServiceProvider.cs` for DI/IoC
 - Added `Logging.cs` to set up `serilog` log configs for `DEBUG` and `RELEASE` environments. Debug logger logs to Debug console within Visual Studio, Release logger logs to a file.
 - Added `NavigationViewModel.cs` to provide basic application view navigation logic. See this being used from `MainViewModel.cs` - the corresponding view for this VM uses a `ContentControl` to display what view is mounted into the main window. More specific instances of this same service could be used to navigate within other parts of the application if this is required. It is written such that direct access to the instance is required to navigate, though some logic could be added with an `IMessenger` to make decoupled navigation possible too.
+
+```csharp
+public MainWindowViewModel(NavigationViewModel navigationViewModel)
+{
+    this.NavigationViewModel = navigationViewModel;
+
+    // Some logic could go here to change what page is initially navigated to...
+    this.NavigationViewModel.Navigate<ExamplePageViewModel>();
+}
+```
+
+```xml
+<DataTemplate DataType="{x:Type pageViewModels:ExamplePageViewModel}">
+    <pageViews:ExamplePageView />
+</DataTemplate>
+```
+
+```xml
+<Grid Width="Auto">
+    <ContentControl Content="{Binding NavigationViewModel.CurrentViewModel}" />
+</Grid>
+```
+
 - Added `ExamplePageViewModel.cs` and `ExamplePageView.xaml/.cs` to demonstrate the navigation working. This ViewModel contains a basing string property bound to the view - that is what is displayed when the application first opens.
 
 ### Extra `.editorconfig` rules
