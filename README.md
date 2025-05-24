@@ -3,6 +3,7 @@
 ## This project is
 
 - Based on the Visual Studio WPF template
+- Structured around a project using a MVVM design pattern
 - Using .NET 9
 - Using a setup where projects are stored outside of the top-level `.sln` file
 
@@ -53,4 +54,11 @@
 ```
 
 - Added `ServiceProvider.cs` for DI/IoC
+- Added `Logging.cs` to set up `serilog` log configs for `DEBUG` and `RELEASE` environments. Debug logger logs to Debug console within Visual Studio, Release logger logs to a file.
 
+### Extra `.editorconfig` rules
+
+```ini
+# Require XML documentation comments for publicly visible types or members
+dotnet_diagnostic.CS1591.severity = warning
+```

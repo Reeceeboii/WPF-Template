@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+    
+    <!-- Font sizes -->
+    <system:Double x:Key="SharedFontSize1">50</system:Double>    
+    
+    <!-- Other shared styles below... -->
+    
+</ResourceDictionary>
