@@ -256,3 +256,6 @@ dotnet_naming_style.fieldname.required_prefix =
 dotnet_naming_style.fieldname.required_suffix = 
 dotnet_naming_style.fieldname.word_separator = 
 dotnet_naming_style.fieldname.capitalization = camel_case
+
+# Require XML documentation comments for publicly visible types or members
+dotnet_diagnostic.CS1591.severity = warning
