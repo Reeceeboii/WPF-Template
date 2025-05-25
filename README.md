@@ -1,5 +1,7 @@
 # Template WPF Project
 
+[![.NET Core Desktop](https://github.com/Reeceeboii/WPF-Template/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Reeceeboii/WPF-Template/actions/workflows/dotnet-desktop.yml)
+
 ## This project is
 
 - Based on the Visual Studio WPF template
