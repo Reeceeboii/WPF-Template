@@ -48,6 +48,7 @@
 - Project names
 - Project assembly names
 - Project license & repo links etc...
+- `README.md` badge current points to the actions on this repo. The link will need changing to the new repo.
 
 ### Code changes
 
