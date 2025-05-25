@@ -38,6 +38,7 @@
 - Disabled implicit global `using`
 - Enforce code style on build
 - Generate XML doc file to enforce `CS1591` via `.editorconfig`
+- `NeutralLanguage` of app project set to `en-GB`
 
 ### What to go and change after using this template
 
