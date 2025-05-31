@@ -1,8 +1,8 @@
 ﻿namespace Template.App.ViewModel.Windows
 {
     using CommunityToolkit.Mvvm.ComponentModel;
+    using Template.App.ViewModel.Navigation.Interfaces;
     using Template.App.ViewModel.Pages;
-    using Template.App.ViewModel.Navigation;
 
     /// <summary>
     /// ViewModel for the main application window
@@ -10,15 +10,16 @@
     public partial class MainWindowViewModel : ObservableObject
     {
         /// <summary>
-        /// Gets or sets an instance of <see cref="NavigationViewModel"/>
+        /// Gets or sets an instance of <see cref="INavigationViewModel"/>
         /// </summary>
         [ObservableProperty]
-        private NavigationViewModel navigationViewModel;
+        private INavigationViewModel navigationViewModel;
 
         /// <summary>
         /// Initialises a new instance of the <see cref="MainWindowViewModel"/> class
         /// </summary>
-        public MainWindowViewModel(NavigationViewModel navigationViewModel)
+        /// <param name="navigationViewModel">An instance of <see cref="INavigationViewModel"/></param>
+        public MainWindowViewModel(INavigationViewModel navigationViewModel)
         {
             this.NavigationViewModel = navigationViewModel;
 
