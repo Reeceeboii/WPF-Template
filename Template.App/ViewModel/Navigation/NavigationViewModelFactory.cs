@@ -3,6 +3,7 @@
     using System;
     using CommunityToolkit.Mvvm.ComponentModel;
     using Microsoft.Extensions.DependencyInjection;
+    using Template.App.ViewModel.Navigation.Interfaces;
 
     /// <summary>
     /// A factory class used to generically retrieve ViewModels from a <see cref="IServiceProvider"/>
