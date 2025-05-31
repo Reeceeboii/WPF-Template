@@ -3,13 +3,14 @@
     using System;
     using CommunityToolkit.Mvvm.ComponentModel;
     using Serilog;
+    using Template.App.ViewModel.Navigation.Interfaces;
 
     /// <summary>
     /// Class representing the base logic of application view navigation based on
     /// a selected ViewModel
     /// </summary>
     /// <param name="navigationViewModelFactory">An implementation of <see cref="INavigationViewModelFactory"/></param>
-    public class NavigationViewModel(INavigationViewModelFactory navigationViewModelFactory) : ObservableObject
+    public class NavigationViewModel(INavigationViewModelFactory navigationViewModelFactory) : ObservableObject, INavigationViewModel
     {
         /// <summary>
         /// An implementation of <see cref="INavigationViewModelFactory"/>
@@ -52,11 +53,11 @@
                 Log.Debug("{extenderType} navigated to {navType}", this.GetType().Name, typeof(TTarget));
                 Log.Information("Application has navigated to {target}", typeof(TTarget));
             }
-            catch (InvalidOperationException ex) 
+            catch (InvalidOperationException ex)
             {
                 Log.Error(
                     ex,
-                    "{extenderType} cannot navigate to target: {target}. IoC retrieval of target failed", 
+                    "{extenderType} cannot navigate to target: {target}. IoC retrieval of target failed",
                     this.GetType().Name,
                     typeof(TTarget));
             }
@@ -72,7 +73,7 @@
         /// <returns>True if the application should navigate, false if it should not</returns>
         private bool ShouldNavigate<TTarget>()
         {
-            return this.CurrentViewModel is not { } || this.CurrentViewModel is not TTarget;     
+            return this.CurrentViewModel is not { } || this.CurrentViewModel is not TTarget;
         }
     }
 }

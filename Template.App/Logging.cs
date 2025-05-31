@@ -2,6 +2,7 @@
 {
     using System;
     using System.Diagnostics;
+    using System.Diagnostics.CodeAnalysis;
     using Resource;
     using Serilog;
     using Serilog.Events;
@@ -9,6 +10,7 @@
     /// <summary>
     /// Class to handle various logging in DEBUG and RELEASE environments
     /// </summary>
+    [ExcludeFromCodeCoverage(Justification = "Not testable")]
     public static class Logging
     {
         /// <summary>

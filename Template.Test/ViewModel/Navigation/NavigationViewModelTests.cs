@@ -11,6 +11,7 @@ namespace Template.Test.ViewModel.Navigation
     using Serilog.Sinks.TestCorrelator;
     using Shouldly;
     using Template.App.ViewModel.Navigation;
+    using Template.App.ViewModel.Navigation.Interfaces;
     using Template.Test.Utils.ExampleTypes;
 
     /// <summary>
@@ -23,7 +24,7 @@ namespace Template.Test.ViewModel.Navigation
         /// <summary>
         /// System under test
         /// </summary>
-        private NavigationViewModel sut;
+        private INavigationViewModel sut;
 
         /// <summary>
         /// Mock <see cref="INavigationViewModelFactory"/> used in tests
