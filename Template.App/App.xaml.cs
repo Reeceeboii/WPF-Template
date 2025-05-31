@@ -1,11 +1,13 @@
 ﻿namespace Template.App
 {
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using Serilog;
 
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+    [ExcludeFromCodeCoverage(Justification = "Not testable")]
     public partial class App : Application
     {
         /// <summary>
