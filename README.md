@@ -6,14 +6,14 @@
 
 - Based on the Visual Studio WPF template
 - Structured around a project using a MVVM design pattern
-- Using .NET 9
+- Using .NET 10
 - Using a setup where projects are stored outside of the top-level `.sln` file
 
 ## This template has the following...
 
 ### NuGet Packages
 
-> **NOTE: these should be updated before use of this template**
+> **NOTE: these should be updated before use of this template, if updates are available**
 
 #### App project
 
@@ -41,6 +41,7 @@
 - Enforce code style on build
 - Generate XML doc file to enforce `CS1591` via `.editorconfig`
 - `NeutralLanguage` of app project set to `en-GB`
+- Minimum OS version set to Windows 10
 
 ### What to go and change after using this template
 
